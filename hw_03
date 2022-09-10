@@ -210,7 +210,7 @@
                 </tbody>
             </table>
 
-            <table border="2px">
+            <table border="2px" style="width: 30%;">
                 <thead>
                     <tr>
                         <td style="background-color: yellow;"><b> X </b></td>
