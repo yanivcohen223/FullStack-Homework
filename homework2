@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ecom Fullstack Course</title>
+</head>
+<body>
+    <h1>yaniv cohen</h1><br />
+    <br />
+    <a href="https://www.youtube.com/" target="_blank">link to youtube</a><br >
+    <br />
+    <img src="/img/lightbulb.webp" width="150px" length="150px">
+
+    <h3>Familiar Companies:</h3>
+    <ul>
+        <li>Nike</li>
+        <li>Adidas</li>
+        <li>Vans</li>
+        <li>Converse</li>
+    </ul>
+    <br />
+    <table border="2px">
+        <thead>
+            <tr>
+                <td >First Name</td>
+                <td>Last Name</td>
+                <td>Age</td>
+                <td>Course</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>yaniv</td>
+                <td>cohen</td>
+                <td>22</td>
+                <td>Ecom Fullstack</td>
+            </tr>
+            <tr>
+                <td>max</td>
+                <td>dubov</td>
+                <td>38</td>
+                <td>Ecom Fullstack</td>
+            </tr>
+            <tr>
+                <td>leon</td>
+                <td>levi</td>
+                <td>25</td>
+                <td>Ecom Fullstack</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
