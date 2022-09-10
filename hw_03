@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HomeWork</title>
+</head>
+<body>
+    <h3>choose a city</h3>
+    <form>
+        <label for="id_global_cities">where you wanna live:</label>
+        <br />
+        <select name="id_global_cities" id="id_global_cities">
+            <option value="new york">new york</option>
+            <option value="london">london</option>
+            <option value="berlin">berlin</option>
+        </select>  
+    </form>
+    <form>
+        <h1>My Form:</h1><br />
+        
+        <label for="id_myname">My Name</label>
+        <input type="text" id="id_myname" name="id_myname" maxlength="10" required><br />
+        
+        <label for="id_mypassword">My password</label>
+        <input type="password" id="id_mypassword" name="id_mypassword"><br />
+
+        <label for="id_email">My E-Mail</label>
+        <input type="email" id="id_email" name="id_email" required><br />
+        <br />
+        <button type="submit">send</button>
+    </form>
+
+    <h1>Pancake Recipe</h1>
+    <p>This is a great <b>Pancake recipe</b> that I found in my Grandma's recipe book.<br />
+        Judging from the weathered look of this recipe card, this was a family favorite.</p>
+    
+        <h2>ingredients</h2>
+    <ul>
+       <li>1½ cups all-purpose flour</li>
+       <li>3½ teaspoons baking powder</li>
+       <li>¼ teaspoon salt, or more to taste</li>
+       <li>1 tablespoon white sugar</li>
+       <li>1¼ cups milk</li>
+       <li>1 egg</li>
+       <li>3 tablespoons butter, melted</li>
+    </ul>
+    <h2>Preparation</h2>
+    <ol>
+        <li> In a large bowl, sift together the flour, baking powder, salt and sugar.<br />
+            Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.</li>
+            <br />
+        <li> Heat a lightly oiled griddle or frying pan over medium-high heat.<br />
+            Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.</li>
+    </ol>
+
+    <form>
+        <h1>Let's go somewhere</h1>
+        
+        <label for="id_firstname">First Name:</label>
+        <input type="text" id="id_firstname" name="id_firstname" placeholder="put your first name here"><br />
+        <label for="id_familyname">Family name:</label>
+        <input type="text" id="id_familyname" name="id_familyname" placeholder="put yourfamily name here"><br />
+        <br />
+        
+        <span> Gender: </span> &nbsp;<input type="radio" id="id_male" name="id_male">
+        <label for="id_male"> male</label>
+        <input type="radio" id="id_female" name="id_female">
+        <label for="id_female"> female</label><br />
+        <br />
+       
+        
+        <label for="id_choose_a_city">Choose a city</label>
+        <select id="id_choose_a_city" name="id_choose_a_city">
+            <option value="Tokyo">Tokyo</option>
+            <option value="Vienna">Vienna</option>
+            <option value="Budapesht">Budapesht</option>
+        </select><br />
+        <br />
+        
+        <span>Date to travel:</span><br />
+        <label for="id_travel_from">from:</label>
+        <input type="date" id="id_travel_from" name="id_travel_from">
+        <label for="id_travel_to">to:</label>
+        <input type="date" id="id_travel_to" name="id_travel_to"><br />
+        <br />
+
+        <span> Give me deals for:</span><br />
+        <input type="checkbox" id="id_kiev" name="id_kiev">
+        <label for="id_kiev">Kiev</label><br />
+        <input type="checkbox" id="id_amsterdam" name="id_amsterdam">
+        <label for="id_amsterdam">Amsterdam</label><br />
+        <input type="checkbox" id="id_rome" name="id_rome">
+        <label for="id_rome">Rome</label><br />
+        <input type="checkbox" id="id_london" name="id_london">
+        <label for="id_london">London</label><br />
+        <br />
+        <button type="submit">send</button>
+    </form>
+
+        <h1>Ecom Academy</h1>
+        
+        <h2> Adress</h2>
+        <address> XXX Ramat-Gan</address>
+        
+        <h2>Phone</h2>
+        <tel>054 999 8888</tel>
+        
+        <h1>internet site</h1>
+        <a href="http://wwww.ecom.com">http://wwww.ecom.com</a>
+        
+        <h1>Hours</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td style="text-align: center;"><b>-</b></td>
+                    <td><b>Morning</b></td>
+                    <td><b>Afternoon</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Monday</b></td>
+                    <td> closed</td>
+                    <td>13:30-17:30</td>
+                </tr>
+                <tr>
+                    <td><b>Tuesday</b></td>
+                    <td> 08:30-12:15</td>
+                    <td>13:30-17:30</td>
+                </tr>
+                <tr>
+                    <td><b>wednesday</b></td>
+                    <td>08:30-12:15</td>
+                    <td>13:30-17:30</td>
+                </tr>
+                <tr>
+                    <td><b>thursday</b></td>
+                    <td>08:30-12:15</td>
+                    <td>13:30-17:30</td>
+                </tr>
+                <tr>
+                    <td><b>friday</b></td>
+                    <td>08:30-12:15</td>
+                    <td>13:30-17:30</td>
+                </tr>
+                <tr>
+                    <td><b>satuday</b></td>
+                    <td>09:00-12:00</td>
+                    <td>closed</td>
+                </tr>
+                <tr>
+                    <td><b>sunday</b></td>
+                    <td>closed</td>
+                    <td>closed</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>fortnite</h1>
+        <p> Fortnite is an online video game developed by Epic Games and released in 2017.<br />
+            It is available in three distinct game mode versions that otherwise share the same general gameplay and game engine: <br />
+            Fortnite Battle Royale, a free-to-play battle royale game in which up to 100 players fight to be the last person standing; Fortnite: Save the World, <br />
+            a cooperative hybrid tower defense-shooter and survival game in which up to four players <br />
+            fight off zombie-like creatures and defend objects with traps and fortifications they can build</p>
+            <br />
+
+            <h1>Characters</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Picture</td>
+                        <td>Name</td>
+                        <td>Date of birth</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="/img/emy.jpg" alt="picture of Emy" width="50px">
+                        </td>
+                        <td>Emy</td>
+                        <td>2000</td>
+                        <td>
+                            <button>Modify</button>
+                            <button>Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="/img/ray.jpg" alt="picture of Ray" width="50px">
+                        </td>
+                        <td>Ray</td>
+                        <td>2001</td>
+                        <td>
+                            <button>Modify</button>
+                            <button>Delete</button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="/img/ramires.jpg" alt="picture of Ramires" width="50px">
+                        </td>
+                        <td>Ramires</td>
+                        <td>2003</td>
+                        <td>
+                            <button>Modify</button>
+                            <button>Delete</button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table border="2px">
+                <thead>
+                    <tr>
+                        <td style="background-color: yellow;"><b> X </b></td>
+                        <td><b>1</b></td>
+                        <td><b>2</b></td>
+                        <td><b>3</b></td>
+                        <td><b>4</b></td>
+                        <td><b>5</b></td>
+                        <td><b>6</b></td>
+                        <td><b>7</b></td>
+                        <td><b>8</b></td>
+                        <td><b>9</b></td>
+                        <td><b>10</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>1</b></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td><b>2</b></td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>12</td>
+                        <td>14</td>
+                        <td>16</td>
+                        <td>18</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td><b>3</b></td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>9</td>
+                        <td>12</td>
+                        <td>15</td>
+                        <td>18</td>
+                        <td>21</td>
+                        <td>24</td>
+                        <td>27</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td><b>4</b></td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>12</td>
+                        <td>16</td>
+                        <td>20</td>
+                        <td>24</td>
+                        <td>28</td>
+                        <td>32</td>
+                        <td>36</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td><b>5</b></td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>15</td>
+                        <td>20</td>
+                        <td>25</td>
+                        <td>30</td>
+                        <td>35</td>
+                        <td>40</td>
+                        <td>45</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td><b>6</b></td>
+                        <td>6</td>
+                        <td>12</td>
+                        <td>18</td>
+                        <td>24</td>
+                        <td>30</td>
+                        <td>36</td>
+                        <td>42</td>
+                        <td>48</td>
+                        <td>54</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td><b>7</b></td>
+                        <td>7</td>
+                        <td>14</td>
+                        <td>21</td>
+                        <td>28</td>
+                        <td>35</td>
+                        <td>42</td>
+                        <td>49</td>
+                        <td>56</td>
+                        <td>63</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td><b>8</b></td>
+                        <td>8</td>
+                        <td>16</td>
+                        <td>24</td>
+                        <td>32</td>
+                        <td>40</td>
+                        <td>48</td>
+                        <td>56</td>
+                        <td>64</td>
+                        <td>72</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td><b>9</b></td>
+                        <td>9</td>
+                        <td>18</td>
+                        <td>27</td>
+                        <td>36</td>
+                        <td>45</td>
+                        <td>54</td>
+                        <td>63</td>
+                        <td>72</td>
+                        <td>81</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td><b>10</b></td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>40</td>
+                        <td>50</td>
+                        <td>60</td>
+                        <td>70</td>
+                        <td>88</td>
+                        <td>90</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+</body>
+</html>
