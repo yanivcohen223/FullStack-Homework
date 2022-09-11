@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>classwork3.2</title>
+    <link rel="stylesheet" href="classwork3.2.css">
+</head>
+<body>
+    <div id="first_div">
+        <Span>first div</Span>
+    </div >
+    <div id="second_div">
+        <Span>second div</Span>
+    </div>
+    <div id="third_div">
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
+    </div>
+    
+    <style>
+    #first_div {
+    background-color: yellow;
+    width: 100px;
+    height: 200px;
+    border: solid 2px black;
+    float: left;
+}
+#second_div {
+    background-color: yellow;
+    width: 100px;
+    height: 200px;
+    border: solid 2px black;
+    float: left;
+    margin-left: 100px;
+}
+#third_div {
+    background-color: yellow;
+    width: 100px;
+    height: 200px;
+    border: solid 2px black;
+    float: left;
+    margin-left: 100px;
+}
+ul {
+    background-color: blue;
+    border: solid 3px red;
+    margin: 0px 0px 0px 0px;
+}
+    </style>
+</body>
+</html>
