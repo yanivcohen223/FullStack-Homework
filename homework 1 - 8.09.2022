@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>homework3</title>
+    <link rel="stylesheet" href="homework3.css">
+</head>
+<body>
+    <h1>yaniv cohen</h1> 
+    <div id="id_css">
+    <span><big>C</big>ascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML</span>
+    </div>
+
+    <br />
+    <br />
+
+    <span>
+        The <a href="https://en.wikipedia.org/wiki/Moscow_mule">Moscow mule</a> is a coctail made with <del>vodka</del>, spicy <del>ginger</del> beer, 
+        and <del>lime</del> juice.
+    </span>
+
+    <br />
+
+    <span>
+        The <a href="https://en.wikipedia.org/wiki/Long_Island_iced_tea">Long Island Iced Tea</a> isa type of coctail typically made with <del>vodka</del>,
+        <del>tequila</del>, light <del>rum</del>, triple sec, <del>gin</del>, and a splash of <del>cola</del> 
+    </span>
+
+    <br />
+    <br />
+    <br />
+    
+    <p id="first_sent">Edinburgh Castle is a historic castle in Edinburgh, Scotland.</p>
+    <p id="second_sent">It stands on Castle Rock, which has been occupied by humans since at least the Iron Age,<br />
+         although the nature of the early settlement is unclear</p>
+    <p id="third_sent">There has been a royal castle on the rock since at least the reign of David I in the 12th century,<br />
+         and the site continued to be a royal residence until 1633.</p>
+    
+         <div>
+            <div id="id_dog">
+                <h3>DOG</h3>
+                    <img src="/pictures/dog.jpg" alt="picture of a dog" id="img_dog" height="200px">
+            </div>
+        </div>
+        
+        <style>
+        #id_css {
+    background-color: yellow;
+    height: 50px;
+}
+big {
+    color:  red;
+    font-size: 50px;
+}
+a {
+    text-decoration: none;
+}
+#first_sent {
+    text-align: center;
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+}
+#second_sent {
+    text-align: center;
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+}
+#third_sent {
+    text-align: center;
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+}
+p{
+    text-transform: uppercase;
+}
+#id_dog {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    border: solid 3px white;
+}
+#img_dog {
+    padding: 10px;
+    border: solid 3px white;
+    border-radius: 20px;
+}
+        </style>
+
+
+</body>
+</html>
