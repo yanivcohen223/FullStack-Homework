@@ -42,6 +42,13 @@
             </div>
         </div>
         
+                <h1>ex5:</h1>
+    <div id="id_ex5">
+        <img src="/pictures/moon.jpg" id="id_moon" alt="pic of the moon">
+        <img src="/pictures/earth2.png" id="id_earth" alt="pic of earth">
+        <img src="/pictures/mars.jpg" id="id_mars" alt="pic of mars">
+    </div>
+        
         <style>
         #id_css {
     background-color: yellow;
@@ -84,6 +91,48 @@ p{
     padding: 10px;
     border: solid 3px white;
     border-radius: 20px;
+}
+
+#id_ex5{
+    background-image: url('/pictures/space.jpg');
+    position: absolute;
+    width: 600px;
+    height: 350px;
+}
+#id_moon {
+    border-radius: 1000%;
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-top:  100px;
+    margin-left: 50px;
+    
+}
+#id_earth {
+    border-radius: 1000000000000%;
+    display: block;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-top: 75px;
+    margin-left: 50px;
+}
+#id_mars {
+    border-radius: 100%;
+    display: block;
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+#id_ex6 {
+    background-image: url('/pictures/space.jpg');
+    position: absolute;
+    width: 600px;
+    height: 350px;
 }
         </style>
 
