@@ -3,53 +3,7 @@
 <head>
     <title>homework3</title>
     <link rel="stylesheet" href="homework3.css">
-</head>
-<body>
-    <h1>yaniv cohen</h1> 
-    <div id="id_css">
-    <span><big>C</big>ascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML</span>
-    </div>
-
-    <br />
-    <br />
-
-    <span>
-        The <a href="https://en.wikipedia.org/wiki/Moscow_mule">Moscow mule</a> is a coctail made with <del>vodka</del>, spicy <del>ginger</del> beer, 
-        and <del>lime</del> juice.
-    </span>
-
-    <br />
-
-    <span>
-        The <a href="https://en.wikipedia.org/wiki/Long_Island_iced_tea">Long Island Iced Tea</a> isa type of coctail typically made with <del>vodka</del>,
-        <del>tequila</del>, light <del>rum</del>, triple sec, <del>gin</del>, and a splash of <del>cola</del> 
-    </span>
-
-    <br />
-    <br />
-    <br />
-    
-    <p id="first_sent">Edinburgh Castle is a historic castle in Edinburgh, Scotland.</p>
-    <p id="second_sent">It stands on Castle Rock, which has been occupied by humans since at least the Iron Age,<br />
-         although the nature of the early settlement is unclear</p>
-    <p id="third_sent">There has been a royal castle on the rock since at least the reign of David I in the 12th century,<br />
-         and the site continued to be a royal residence until 1633.</p>
-    
-         <div>
-            <div id="id_dog">
-                <h3>DOG</h3>
-                    <img src="/pictures/dog.jpg" alt="picture of a dog" id="img_dog" height="200px">
-            </div>
-        </div>
-        
-                <h1>ex5:</h1>
-    <div id="id_ex5">
-        <img src="/pictures/moon.jpg" id="id_moon" alt="pic of the moon">
-        <img src="/pictures/earth2.png" id="id_earth" alt="pic of earth">
-        <img src="/pictures/mars.jpg" id="id_mars" alt="pic of mars">
-    </div>
-        
-        <style>
+            <style>
         #id_css {
     background-color: yellow;
     height: 50px;
@@ -136,6 +90,50 @@ p{
 }
         </style>
 
+</head>
+<body>
+    <h1>yaniv cohen</h1> 
+    <div id="id_css">
+    <span><big>C</big>ascading Style Sheets is a stylesheet language used to describe the presentation of a document written in HTML or XML</span>
+    </div>
 
+    <br />
+    <br />
+
+    <span>
+        The <a href="https://en.wikipedia.org/wiki/Moscow_mule">Moscow mule</a> is a coctail made with <del>vodka</del>, spicy <del>ginger</del> beer, 
+        and <del>lime</del> juice.
+    </span>
+
+    <br />
+
+    <span>
+        The <a href="https://en.wikipedia.org/wiki/Long_Island_iced_tea">Long Island Iced Tea</a> isa type of coctail typically made with <del>vodka</del>,
+        <del>tequila</del>, light <del>rum</del>, triple sec, <del>gin</del>, and a splash of <del>cola</del> 
+    </span>
+
+    <br />
+    <br />
+    <br />
+    
+    <p id="first_sent">Edinburgh Castle is a historic castle in Edinburgh, Scotland.</p>
+    <p id="second_sent">It stands on Castle Rock, which has been occupied by humans since at least the Iron Age,<br />
+         although the nature of the early settlement is unclear</p>
+    <p id="third_sent">There has been a royal castle on the rock since at least the reign of David I in the 12th century,<br />
+         and the site continued to be a royal residence until 1633.</p>
+    
+         <div>
+            <div id="id_dog">
+                <h3>DOG</h3>
+                    <img src="/pictures/dog.jpg" alt="picture of a dog" id="img_dog" height="200px">
+            </div>
+        </div>
+        
+                <h1>ex5:</h1>
+    <div id="id_ex5">
+        <img src="/pictures/moon.jpg" id="id_moon" alt="pic of the moon">
+        <img src="/pictures/earth2.png" id="id_earth" alt="pic of earth">
+        <img src="/pictures/mars.jpg" id="id_mars" alt="pic of mars">
+    </div>
 </body>
 </html>
