@@ -3,23 +3,7 @@
 <head>
     <title>classwork3.2</title>
     <link rel="stylesheet" href="classwork3.2.css">
-</head>
-<body>
-    <div id="first_div">
-        <Span>first div</Span>
-    </div >
-    <div id="second_div">
-        <Span>second div</Span>
-    </div>
-    <div id="third_div">
-        <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-        </ul>
-    </div>
-    
-    <style>
+        <style>
     #first_div {
     background-color: yellow;
     width: 100px;
@@ -49,5 +33,20 @@ ul {
     margin: 0px 0px 0px 0px;
 }
     </style>
+</head>
+<body>
+    <div id="first_div">
+        <Span>first div</Span>
+    </div >
+    <div id="second_div">
+        <Span>second div</Span>
+    </div>
+    <div id="third_div">
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
+    </div>
 </body>
 </html>
