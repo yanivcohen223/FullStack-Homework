@@ -3,21 +3,7 @@
 <head>
     <title>classwork3.1</title>
     <link rel="stylesheet" href="mycssproj3.css">
-</head>
-<body>
-    <div>
-        <h1 id="id_title">Use class</h1>
-        <p id="id_wikipedia">
-            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
-            around the world<br />
-            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
-            around the world<br />
-            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
-            around the world
-        </p>
-    </div>
-    
-    <style>
+        <style>
     div {
     border-top: dashed black 5px;
     border-left: dashed purple 5px;
@@ -46,6 +32,19 @@
 }
 
     </style>
+</head>
+<body>
+    <div>
+        <h1 id="id_title">Use class</h1>
+        <p id="id_wikipedia">
+            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
+            around the world<br />
+            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
+            around the world<br />
+            Wikipedia isa free online encyclopedia, created and edited by volunteers<br />
+            around the world
+        </p>
+    </div>
 </body>
 </html>
 
