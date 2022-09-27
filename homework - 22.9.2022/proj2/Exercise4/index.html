@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise4</title>
+</head>
+<body>
+    <script>
+        num1 = parseInt(prompt(`Please enter a number: `));
+
+        if (num1 >= 1 && num1 <= 99 ) {
+            if (num1 >= 1 && num1 <= 9) {
+                document.write(`${num1} one digit`)
+            }
+            else {
+                document.write(`${num1} two digit`)
+            }
+        }
+        else {
+            if (num1 >= 100 && num1 <= 9999 ){
+                if (num1 >= 100 && num1 <= 999) {
+                    document.write(`${num1} three digit`)
+                }
+                else {
+                document.write(`${num1} four digit`)
+            }
+            }
+        }
+        document.write(`<br /> goodbye :)`)
+    </script>
+</body>
+</html>

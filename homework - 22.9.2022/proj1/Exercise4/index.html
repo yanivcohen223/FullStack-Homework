@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise4</title>
+</head>
+<body>
+    <script>
+        x = parseInt(prompt(`Please enter a number:`))
+        y = parseInt(prompt(`Please enter a number:`))
+
+        if (x % y == 0) {
+            document.write(`yes`)
+        }
+        else {
+            if (y % x == 0)
+            document.write(`<br /> also yes`)
+
+            else {
+                document.write(`not dividing`)
+            }
+        }
+        document.write(`<br /> GoodBye :)`)
+
+    </script>
+</body>
+</html>

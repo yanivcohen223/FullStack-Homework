@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        grade = parseInt(prompt(`Please enter your grade:`));
+
+        if (grade < 55) {
+            document.write(`grade: ${grade} not enough`);
+        }
+        else {
+            if (grade >= 55 && grade <= 64) {
+                document.write(`grade: ${grade} enough`);
+            
+            }
+            else {
+                if (grade >=65 && grade <= 74) {
+                    document.write(`grade: ${grade} almost good`)
+                }
+                else {
+                    if (grade >=75 && grade <= 84) {
+                        document.write(`grade: ${grade} good`)
+                    }
+                    else {
+                        if (grade >=85 && grade <= 94) {
+                            document.write(`grade: ${grade} very good`)
+                        }
+                        else {
+                            if (grade >=95)
+                               document.write(`grade: ${grade} Excellent`)
+                        }
+                    }
+                }
+            }
+        }
+        document.write(`<br /> goodbye :)`)
+    </script>
+</body>
+</html>
