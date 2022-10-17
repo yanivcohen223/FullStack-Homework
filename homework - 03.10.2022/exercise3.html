@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>loops</title>
+</head>
+
+<body>
+
+    <script>
+
+            your_num = parseInt(prompt('Enter number: [-1 to exit]'))    
+
+                while (your_num > -1) {
+
+                    sum = 0
+                    while (your_num != 0) {
+                       sum = sum + (your_num%10);
+                       your_num = Math.floor( your_num / 10);
+                    }
+                    document.write(`${sum}`)
+                    document.write(`<br />`)
+                    your_num = parseInt(prompt('Enter number: [-1 to exit]'));
+                       
+                }
+                document.write(`finished`)
+        
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
