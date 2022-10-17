@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        x = parseInt(prompt(`enter a number:`))
+        let opposite_number = 0
+        
+        document.write (`number: ${x}`)
+        while (x > 0 ) {
+          opposite_number = opposite_number + (x % 10)
+          x = Math.floor(x / 10)
+          opposite_number = (opposite_number*10)
+          
+        }
+        
+        document.write (`<br /> oppositer number : ${opposite_number/10}`)
+
+
+
+    </script>
+</body>
+</html>
