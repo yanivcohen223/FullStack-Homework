@@ -8,25 +8,17 @@
 </head>
 <body>
     <script>
-        let row = parseInt(prompt(`enter a number:`))
-        let col = parseInt(prompt(`enter a number:`))
+    let row = parseInt(prompt('Enter number of rows:'))
+    let col = parseInt(prompt('Enter number of coloms:'))
 
-        while (row != 0) {
 
-            col = row
-            while (true) {
-                document.write(`0`)
-                row--;
-                
-                if (row == 0) {
-                    break
-                }
-            }
-            let row = parseInt(prompt(`enter a number:`))
-            let col = parseInt(prompt(`enter a number:`))
+    for (let x = 1; x <= row; x++) {
+        for (let y = 1; y <= col; y++) {
+            document.write(`0`)
         }
-
-        document.write('finished!')
-    </script>
-</body>
+        document.write('<br />')
+    }
+    document.write('<br /> finished!')
+</script>
+    </body>
 </html>
