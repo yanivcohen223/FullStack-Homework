@@ -15,4 +15,11 @@ function SubmitButton() {
         newstr= newstr + first_name[i] + second_name[i]
     }
     document.getElementById('txt4').innerHTML = `merged names ${newstr}`
+    
+    let reverse_first_name = "";
+    for (let i = first_name.length - 1; i >= 0; i--) { 
+        reverse_first_name += first_name[i];}
+        document.getElementById('txt5').innerHTML = `reverse first name ${reverse_first_name}`
+
+    document.getElementById('txt6').innerHTML = `second letters from each box ${first_name[1] + second_name [1]}`
 }
