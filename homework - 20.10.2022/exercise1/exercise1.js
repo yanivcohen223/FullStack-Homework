@@ -8,7 +8,7 @@ function SubmitButton() {
     let second_len = document.getElementById('Second_box').value.length
     document.getElementById('txt2').innerHTML = `Last Name: = ${second_name} , length = ${second_len}`
 
-    document.getElementById('txt3').innerHTML = `full-Name combained = ${first_name+second_name} , length = ${first_len+second_len}`
+    document.getElementById('txt3').innerHTML = `full-Name combained = ${first_name+second_name+first_name} , length = ${first_len+second_len}`
 
     let newstr = ""; 
     for (let i = 0; i < first_name.length; i++) {
