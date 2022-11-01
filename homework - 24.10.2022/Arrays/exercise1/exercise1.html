@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="txt1"></p>
+    <p id="txt2"></p>
+    <p id="txt3"></p>
+    <p id="txt4"></p>
+    <script>
+        //1.a
+        const Days = ["Sunday", "Monday", "Tuesday",
+            "wednesday", "Thursday", "Friday", "Saturday" ];
+        
+        document.getElementById('txt1').innerHTML = Days
+        
+        //1.b
+        Days.sort()
+        document.getElementById('txt2').innerHTML = Days
+
+        //1.c
+        let Days2 =  ["Sunday", "Monday", "Tuesday",
+            "wednesday", "Thursday", "Friday", "Saturday" ];
+
+        function print(arr) {
+            document.getElementById('txt3').innerHTML += arr + '<br />'
+        }
+
+        function sort_function(arr) {
+            arr.sort()
+            document.getElementById('txt4').innerHTML += arr + '<br />'
+        }
+
+        print(Days2)
+        sort_function(Days2)
+    </script>
+</body>
+</html>

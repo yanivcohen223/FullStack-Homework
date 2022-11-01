@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="txt1"></p>
+
+    <script>
+        function print(msg) { 
+            document.getElementById('txt1').innerHTML += `${msg} <br />`
+        }
+        
+        function Allnum_check(arr) {
+
+            let num_less50 = arr.every((e) => e <= 50);
+            let num_51_100 = arr.every((e) => e >= 51 && e <= 100);
+            let num_101_200 = arr.every((e) => e >= 101 && e <= 200);
+            let num_201 = arr.every((e) => e >= 201);
+                
+            if (num_less50) {
+                document.getElementById('txt1').innerHTML = "smaller than 50";
+            }
+            else if (num_51_100) {
+                document.getElementById('txt1').innerHTML = 'between 51 to 100';
+            }
+            else if (num_101_200) {
+                document.getElementById('txt1').innerHTML = 'between 101 to 200';
+            }
+            else if (num_201) {
+                document.getElementById('txt1').innerHTML = 'greater than 200';
+            }
+            else (
+                document.getElementById('txt1').innerHTML = 'No condition is happening'
+            )
+        }
+
+    </script>
+</body>
+</html>

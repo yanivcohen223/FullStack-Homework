@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="txt1"></p>
+
+    <script>
+        const array = [4, 9, 45, 32, 55, 79, 100];
+        
+
+
+        function array_func(array, num) {
+            if (num <= array.length) {
+                document.getElementById('txt1').innerHTML = array[num]
+            }
+            else {
+                document.getElementById('txt1').innerHTML = `Sorry, no value in the
+                array for index number: ${num}`
+            }
+        }
+        array_func(array, 9)
+    </script>
+</body>
+</html>
