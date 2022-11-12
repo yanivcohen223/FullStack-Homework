@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="tic_tac_toe.js"></script>
+    <link rel="stylesheet" href="tic_tac_toe.css">
+
+    <title>tic tac toe</title>
+</head>
+<body>
+    
+    <h1 id="h_welcome">welcome to tic tac toe</h1>
+
+    <div id="game_mode">
+        <p>choose mode:</p>
+        <button  class="symbol" onclick="select_symbol('X')">X</button>
+        <button class="symbol" onclick="select_symbol('O')">O</button>
+        <button id="vs_computer" class="symbol" onclick="game_vs_computer()">vs computer</button>
+        <br/>
+        <p id="turn"></p>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <td><button id="bt1" class="button" onclick="symbol_place(1)"></button></td>
+                <td><button id="bt2" class="button" onclick="symbol_place(2)"></button></td>
+                <td><button id="bt3" class="button" onclick="symbol_place(3)"></button></td>
+            </tr>
+            <tr>
+                <td><button id="bt4" class="button" onclick="symbol_place(4)"></button></td>
+                <td><button id="bt5" class="button" onclick="symbol_place(5)"></button></td>
+                <td><button id="bt6" class="button" onclick="symbol_place(6)"></button></td> 
+            </tr> 
+            <tr>
+                <td><button id="bt7" class="button" onclick="symbol_place(7)"></button></td>
+                <td><button id="bt8" class="button" onclick="symbol_place(8)"></button></td> 
+                <td><button id="bt9" class="button" onclick="symbol_place(9)"></button></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3 id="who_won">who's won?</h3>
+
+    <button id="new_game" onclick="restart()">new game?</button>
+
+</body>
+</html>

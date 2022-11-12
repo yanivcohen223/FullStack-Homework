@@ -1,0 +1,62 @@
+body {
+    background-image: url(images/page_backround.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+h1 {
+    color: black;
+    font-family:cursive;
+    font-size:250%; 
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+ }
+
+#game_mode {
+    text-align: center;
+}
+.symbol {
+    border:  solid rgb(0, 0, 0);
+    margin: auto;
+    display: block, inline;
+    border-radius: 50px;
+    font-family: cursive;
+    background-color: rgb(93, 127, 93);
+    color: rgb(247, 247, 247);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+table{margin: auto;}
+
+.button{
+    width: 130px; 
+       height: 130px;;
+       border: 3px solid #000000;
+       background-color: rgb(245, 245, 245);
+       text-align: center;
+       font-size: 50px; 
+       font-family: cursive;
+       border-radius: 10px;
+       cursor: pointer;
+       background-image: url(/images/button_backround.jpg);
+}
+
+#who_won, p {
+    font-family: cursive;
+    text-align: center;
+}
+
+#new_game{
+    border: solid rgb(0, 0, 0);
+    margin: auto;
+    display: block;
+    border-radius: 50px;
+    font-family: cursive;
+    background-color: rgb(93, 127, 93);
+    color: rgb(247, 247, 247);
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
