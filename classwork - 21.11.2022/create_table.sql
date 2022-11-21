@@ -1,0 +1,8 @@
+CREATE TABLE CONTACTS(
+contact_id INT PRIMARY KEY NOT NULL,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+email TEXT NOT NULL UNIQUE,
+phone TEXT NOT NULL UNIQUE,
+time_of_creation TEXT NOT NULL
+);
