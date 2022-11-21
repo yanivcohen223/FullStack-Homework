@@ -66,10 +66,6 @@ h3 {
     letter-spacing: 3px;
 }
 
-/*
-A tilde = ~ -----> On mac = option + n 
-*/
-
 .inputBox input:valid~label,
 .inputBox input:focus~label {
     transform: translateX(113px) translateY(-15px);
