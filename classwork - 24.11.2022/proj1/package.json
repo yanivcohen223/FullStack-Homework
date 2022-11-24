@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Yaniv C.",
+  "author": "Yaniv Cohen",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.3",
