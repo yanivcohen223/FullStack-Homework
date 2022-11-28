@@ -1,0 +1,67 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: pokemon;
+    src: url('pokemon.ttf');
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(images/273289.jpg);
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 0.5px;
+    
+}
+section {
+    display: grid;
+    grid-template-columns: repeat(4,8rem);
+    grid-template-rows: repeat(4, 8rem);
+    grid-gap: 1rem;
+    perspective: 800px;
+}
+
+.card {
+    position: relative;
+    transform-style:preserve-3d ;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+.front, 
+.back {
+    height: 90%;
+    width: 85%;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+.back {
+    backface-visibility: hidden;
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+#logo {
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+}
+h5 {
+    padding: 0px;
+    margin: 0px;                                    
+}
+
+
