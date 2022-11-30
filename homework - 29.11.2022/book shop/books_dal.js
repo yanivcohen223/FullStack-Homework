@@ -45,16 +45,36 @@ function find_by_title () {
 
 }
 
-function insert () {
+function insert (db, data) {
+    const insert_book = `INSERT INTO COMPANY (title,author,publish_year,price,left_in_stock,book_image_src)
+                        VALUES (?, ?, ?, ?, ?, ? );`
 
+    db.run (insert_book, data, (err) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log('succseed' + ' ' + data);
+        }
+    })
 }
 
 function update () {
 
 }
 
-function delete_by_id () {
+function delete_by_id (db, id) {
+    let delete_book = `DELETE FROM COMPANY
+                      WHERE ID = ?`
 
+    db.run(delete_book,id, err => {
+        if (err) {
+            console.log('error' + ' ' + err);
+        }
+        else {
+            console.log(id + ' ' + 'deleted');
+        }
+    })
 }
 
 function close_db(db) {
@@ -72,5 +92,5 @@ const db = open_db(db_file_loc)
 
 setTimeout(() => {get_all (db)}, 500);
 setTimeout(() => {get_by_id (db, id)}, 500);
-
+setTimeout(() => {delete_by_id (db, id)}, 500);
 setTimeout(() => {close_db(db)}, 1000);
