@@ -11,54 +11,6 @@ function open_db(file_name) {
   });
 }
 
-function get_all(db) {
-  db.serialize(() => {
-    db.each(`SELECT * FROM Books;`, (err, row) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.table(row);
-      }
-    });
-  });
-}
-
-function get_by_id(db, id) {
-  const select_by_id = `SELECT * FROM Books
-                            WHERE id = ?`;
-  db.serialize(() => {
-    db.each(
-      `SELECT * FROM Books
-                    WHERE id = ${id}`,
-      (err, row) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.table(row);
-        }
-      }
-    );
-  });
-}
-
-function find_by_title(db, find_title) {
-  const result = [];
-  db.serialize(() => {
-    db.each(
-      `SELECT * FROM Books 
-                    WHERE title GLOB '*${find_title}*';`,
-      (err, row) => {
-        if (err) {
-          console.log(err);
-        } else {
-          result.push(row);
-          console.log(row);
-        }
-      }
-    );
-    return result;
-  });
-}
 
 function insert(db, data) {
   const insert_book = `INSERT INTO Books (title,author,publish_year,price,left_in_stock,book_image_src)
@@ -83,19 +35,6 @@ function update(db, where_to_up, what_to_up, id) {
       console.log("error" + " " + err);
     } else {
       console.log("value updated" + get_by_id(db, id));
-    }
-  });
-}
-
-function delete_by_id(db, id) {
-  let delete_book = `DELETE FROM Books
-                      WHERE ID = ?`;
-
-  db.run(delete_book, id, (err) => {
-    if (err) {
-      console.log("error" + " " + err);
-    } else {
-      console.log(id + " " + "deleted");
     }
   });
 }
