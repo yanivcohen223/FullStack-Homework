@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/git/FullStack-Homework/homework - 1.12.2022/db1.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="1475"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainPRODUCTS"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="CATALOG" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="42"/><column index="2" value="65"/><column index="3" value="80"/><column index="4" value="81"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="COSTUMERS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="42"/><column index="2" value="50"/><column index="3" value="48"/><column index="4" value="85"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ORDERS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="42"/><column index="2" value="90"/><column index="3" value="81"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="PRODUCTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="42"/><column index="2" value="45"/><column index="3" value="42"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE COSTUMERS(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+fname TEXT NOT NULL,
+lname TEXT NOT NULL,
+phone_num TEXT UNIQUE NOT NULL
+)</sql><sql name="SQL 2">CREATE TABLE ORDERS(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+costumer_id INT,
+total_price REAL,
+FOREIGN KEY (costumer_id) REFERENCES COSTUMERS(id)
+FOREIGN KEY (id) REFERENCES CATALOG(order_id)
+)</sql><sql name="SQL 3">CREATE TABLE CATALOG(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+order_id INT,
+product_id INT,
+total_price REAL
+)</sql><sql name="SQL 4">CREATE TABLE PRODUCTS(
+id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+name TEXT,
+price REAL,
+FOREIGN KEY (id) REFERENCES CATALOG(product_id)
+)</sql><current_tab id="1"/></tab_sql></sqlb_project>
