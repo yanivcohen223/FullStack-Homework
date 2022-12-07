@@ -27,7 +27,9 @@ const your_age = new Promise((resolve, reject) => {
 })
 
 //your_age.then(
-//    (response) => {console.log(`age recived by the user: ${response}`)},
+//    (response) => {console.log(`age recived by the user: ${response}`)}
+//)
+//.catch(
 //    (error) => {console.log(error.message)}
 //)
 
@@ -57,7 +59,9 @@ const my_files = new Promise ((resolve, reject) => {
 })
 
 //my_files.then(
-//    (value) => {console.log(`[async] Files ${value}`)},
+//    (value) => {console.log(`[async] Files ${value}`)}
+//)
+//.catch(
 //    (err) => {console.log(`[async] Error ${err}`)}
 //)
 
