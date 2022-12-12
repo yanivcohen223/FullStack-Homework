@@ -1,5 +1,5 @@
 /*
-EX1
+//EX1
 const { throws } = require('assert');
 var readline = require('readline');
 var rl = readline.createInterface(process.stdin, process.stdout);
@@ -22,7 +22,7 @@ const your_age = new Promise((resolve, reject) => {
         else {
             reject(uncorrect_age)
         }
-        rl.close
+        rl.close()
     })
 })
 
@@ -68,7 +68,8 @@ const my_files = new Promise ((resolve, reject) => {
 async function return_files() {
     try {
         const success = await my_files
-        console.log(`[async] your Files ${success}`);
+        console.log(`your Files ${success}`);
+        
     } catch (error) {
         console.log(`ERROR ${error}`);
     }
