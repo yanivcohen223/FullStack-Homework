@@ -82,7 +82,7 @@ function update_price(db, what_to_up, id) {
     let update_book = `UPDATE Books
                          SET price = ?
                          WHERE id = ?`;
-1
+
     db.run(update_book, what_to_up, id, (err) => {
       if (err) {
         console.log("error" + " " + err);
