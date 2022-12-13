@@ -15,65 +15,62 @@ function open_db(file_name) {
   });
 }
 
-function get_all(db) {
-  db.serialize(() => {
-    db.each(`SELECT * FROM Books;`, (err, row) => {
+function get_all(db, query) {
+  return new Promise((resolve, reject) => {
+    //const all_books = "SELECT * FROM BOOKS";
+    db.all(query, function (err, rows) {
       if (err) {
         console.log(err);
-      } else {
-        console.table(row);
+        reject(err);
       }
+      resolve(rows);
     });
   });
 }
 
 function get_by_id(db, id) {
-  const select_by_id = `SELECT * FROM Books
-                            WHERE id = ?`;
-  db.serialize(() => {
-    db.each(
-      `SELECT * FROM Books
-                    WHERE id = ${id}`,
-      (err, row) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.table(row);
-        }
+  return new Promise((resolve, reject) => {
+    const select_by_id = "SELECT * FROM BOOKS where id = ?";
+    db.all(select_by_id, id, function (err, rows) {
+      if (err) {
+        console.log(err);
+        reject(err);
       }
-    );
+      resolve(rows);
+    });
   });
 }
 
 function find_by_title(db, find_title) {
-  const result = [];
-  db.serialize(() => {
-    db.each(
-      `SELECT * FROM Books 
-                    WHERE title GLOB '*${find_title}*';`,
-      (err, row) => {
-        if (err) {
-          console.log(err);
-        } else {
-          result.push(row);
-          console.log(row);
-        }
+  return new Promise((resolve, reject) => {
+    const sql_find_by_title = `SELECT title FROM BOOKS
+                               WHERE title GLOB "*${find_title}*"`;
+    db.get(sql_find_by_title, (err, row) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(row);
+        resolve();
       }
-    );
-    return result;
+    });
   });
 }
 
-function insert(db, data) {
-  const insert_book = `INSERT INTO Books (title,author,publish_year,price,left_in_stock,book_image_src)
+function insert_book_async(db, data) {
+  return new Promise((resolve, reject) => {
+    const insert_book = `INSERT INTO Books (title,author,publish_year,price,left_in_stock,book_image_src)
                         VALUES (?, ?, ?, ?, ?, ? );`;
 
-  db.run(insert_book, data, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("insert succeeded" + " " + data);
-    }
+    db.run(insert_book, data, (err) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log("insert succeeded" + " " + data);
+        resolve();
+      }
+    });
   });
 }
 
@@ -83,13 +80,13 @@ function update_price(db, what_to_up, id) {
                          SET price = ?
                          WHERE id = ?`;
 
-    db.run(update_book, what_to_up, id, (err) => {
+    db.run(update_book, [what_to_up, id], (err) => {
       if (err) {
         console.log("error" + " " + err);
-        reject(err)
+        reject(err);
       } else {
         console.log("value updated" + get_by_id(db, id));
-        resolve()
+        resolve();
       }
     });
   });
@@ -127,21 +124,33 @@ function close_db(db) {
 }
 
 async function book_main() {
-  const db = await open_db(db_file_loc);
-  console.log(db);
+  try {
+    const db = await open_db(db_file_loc);
+    await insert_book_async(db, [
+      "Come as you are",
+      "Emily Naqoski",
+      2015,
+      200,
+      3,
+      "lll",
+    ]);
+    await find_by_title(db, "Com");
 
-  await update_price(db, what_to_up, id)
-  await delete_by_id_async(db, id);
-  await close_db(db);
+    const result_get_all = await get_all(db, "SELECT * FROM BOOKS");
+    console.log(result_get_all);
+
+    const result_get_by_id = await get_by_id(db, id);
+    console.log(result_get_by_id);
+
+    await update_price(db, what_to_up, id);
+    await delete_by_id_async(db, id);
+
+    await close_db(db);
+
+  } 
+  catch (error) {
+    console.log(error);
+  }
 }
 
 book_main();
-//setTimeout(() => {get_all (db)}, 500);
-//setTimeout(() => {get_by_id (db, 1)}, 500);
-//setTimeout(() => {find_by_title (db, 'ki')}, 500);
-//setTimeout(() => {insert (db, ['the kignt', 'fda', 20100, 220,3])}, 500);
-//setTimeout(() => {update (db,'author', 'idan', 2)}, 500);
-//setTimeout(() => {delete_by_id (db, 2)}, 500);
-//setTimeout(() => {
-//  close_db(db);
-//}, 1000);
