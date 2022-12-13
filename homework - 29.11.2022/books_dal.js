@@ -2,12 +2,16 @@ const sqlite3 = require("sqlite3").verbose();
 const db_file_loc = "./database/books_db.db";
 
 function open_db(file_name) {
-  return new sqlite3.Database(file_name, (err) => {
-    if (err) {
-      console.log(`Failed to connect to ${file_name}`);
-    } else {
-      console.log(`Successfully connected to ${file_name}`);
-    }
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(file_name, (err) => {
+      if (err) {
+        console.log(`Failed to connect to ${file_name}`);
+        reject(err);
+      } else {
+        console.log(`Successfully connected to ${file_name}`);
+        resolve(db);
+      }
+    });
   });
 }
 
@@ -73,51 +77,71 @@ function insert(db, data) {
   });
 }
 
-function update(db, where_to_up, what_to_up, id) {
-  let update_book = `UPDATE Books
-                         SET ${where_to_up} = ?
+function update_price(db, what_to_up, id) {
+  return new Promise((resolve, reject) => {
+    let update_book = `UPDATE Books
+                         SET price = ?
                          WHERE id = ?`;
-
-  db.run(update_book, what_to_up, id, (err) => {
-    if (err) {
-      console.log("error" + " " + err);
-    } else {
-      console.log("value updated" + get_by_id(db, id));
-    }
+1
+    db.run(update_book, what_to_up, id, (err) => {
+      if (err) {
+        console.log("error" + " " + err);
+        reject(err)
+      } else {
+        console.log("value updated" + get_by_id(db, id));
+        resolve()
+      }
+    });
   });
 }
 
-function delete_by_id(db, id) {
-  let delete_book = `DELETE FROM Books
+function delete_by_id_async(db, id) {
+  return new Promise((resolve, reject) => {
+    let delete_book = `DELETE FROM Books
                       WHERE ID = ?`;
 
-  db.run(delete_book, id, (err) => {
-    if (err) {
-      console.log("error" + " " + err);
-    } else {
-      console.log(id + " " + "deleted");
-    }
+    db.run(delete_book, id, (err) => {
+      if (err) {
+        console.log("error" + " " + err);
+        reject(err);
+      } else {
+        console.log(id + " " + "deleted");
+        resolve();
+      }
+    });
   });
 }
 
 function close_db(db) {
-  db.close((err) => {
-    if (err) {
-      console.log(err.message);
-    } else {
-      console.log("Database closed!");
-    }
+  return new Promise((resolve, reject) => {
+    db.close((err) => {
+      if (err) {
+        console.log(err.message);
+        reject(err);
+      } else {
+        console.log("Database closed!");
+        resolve();
+      }
+    });
   });
 }
 
-const db = open_db(db_file_loc);
+async function book_main() {
+  const db = await open_db(db_file_loc);
+  console.log(db);
 
+  await update_price(db, what_to_up, id)
+  await delete_by_id_async(db, id);
+  await close_db(db);
+}
+
+book_main();
 //setTimeout(() => {get_all (db)}, 500);
 //setTimeout(() => {get_by_id (db, 1)}, 500);
 //setTimeout(() => {find_by_title (db, 'ki')}, 500);
 //setTimeout(() => {insert (db, ['the kignt', 'fda', 20100, 220,3])}, 500);
 //setTimeout(() => {update (db,'author', 'idan', 2)}, 500);
 //setTimeout(() => {delete_by_id (db, 2)}, 500);
-setTimeout(() => {
-  close_db(db);
-}, 1000);
+//setTimeout(() => {
+//  close_db(db);
+//}, 1000);
