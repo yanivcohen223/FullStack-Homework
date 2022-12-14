@@ -1,39 +1,176 @@
-const sqlite3 = require('sqlite3').verbose();
-const db_file_loc = './database/orders_db.db'
+const sqlite3 = require("sqlite3").verbose();
+const db_file_loc = "./database/books_db.db";
 
+//open data base
 function open_db(file_name) {
-    return new sqlite3.Database(file_name, (err) => {
-        if (err) {
-            console.log(`Failed to connect to ${file_name}`);
-        }
-        else {
-            console.log(`Successfully connected to ${file_name}`);
-        }
-    })
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(file_name, (err) => {
+      if (err) {
+        console.log(`Failed to connect to ${file_name}`);
+        reject(err);
+      } else {
+        console.log(`Successfully connected to ${file_name}`);
+        resolve(db);
+      }
+    });
+  });
 }
 
-function get_all () {
-
+//gets all the orders from the database
+function get_all(db, query) {
+  return new Promise((resolve, reject) => {
+    db.all(query, function (err, rows) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }
+      resolve(rows);
+    });
+  });
 }
 
-function get_by_id () {
-
+//gets order by her id
+function get_by_id(db, id) {
+  return new Promise((resolve, reject) => {
+    const select_by_id = "SELECT * FROM ORDERS where id = ?";
+    db.all(select_by_id, id, function (err, rows) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }
+      resolve(rows);
+    });
+  });
 }
 
-function find_by_lname () {
-
+//finds order by the costumer last name
+function find_by_lname(db, find_title) {
+  return new Promise((resolve, reject) => {
+    const sql_find_by_title = `SELECT costumer_lname FROM ORDERS
+                               WHERE costumer_lname GLOB "*${find_title}*"`;
+    db.get(sql_find_by_title, (err, row) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(row);
+        resolve();
+      }
+    });
+  });
 }
 
-function insert () {
+//creating new order
+function insert_order_async(db, data) {
+  return new Promise((resolve, reject) => {
+    const insert_order = `INSERT INTO ORDERS (book_id,how_many,time_of_order,costumer_fname,costumer_lname,credit_card)
+                        VALUES (?, ?, ?, ?, ?, ? );`;
 
+    db.run(insert_order, data, (err) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log("insert succeeded" + " " + data);
+        resolve();
+      }
+    });
+  });
 }
 
-function update () {
+//update the number of books the buyer wants
+function update_number_of_books(db, what_to_up, id) {
+  return new Promise((resolve, reject) => {
+    let update_order = `UPDATE ORDERS
+                         SET how_many = ?
+                         WHERE id = ?`;
 
+    db.run(update_order, [what_to_up, id], (err) => {
+      if (err) {
+        console.log("error" + " " + err);
+        reject(err);
+      } else {
+        console.log("value updated" + get_by_id(db, id));
+        resolve();
+      }
+    });
+  });
 }
 
-function delete_by_id () {
+//delete an order by the id
+function delete_by_id_async(db, id) {
+  return new Promise((resolve, reject) => {
+    let delete_order = `DELETE FROM ORDERS
+                      WHERE ID = ?`;
 
+    db.run(delete_order, id, (err) => {
+      if (err) {
+        console.log("error" + " " + err);
+        reject(err);
+      } else {
+        console.log(id + " " + "deleted");
+        resolve();
+      }
+    });
+  });
 }
 
-const db = open_db(db_file_loc)
+//function to getthe exact time
+function time_set() {
+    let y = (new Date).getFullYear()
+    let d = (new Date).getDate() 
+    let m = (new Date).getMonth() + 1
+    let h = (new Date).getHours()
+    let mi = (new Date).getMinutes()
+    let sec = (new Date).getSeconds()
+    let time_ = h + ":" + mi + ":" + sec + " " + d + "/" + m + "/" + y
+    return time_
+    }
+
+//close database
+function close_db(db) {
+  return new Promise((resolve, reject) => {
+    db.close((err) => {
+      if (err) {
+        console.log(err.message);
+        reject(err);
+      } else {
+        console.log("Database closed!");
+        resolve();
+      }
+    });
+  });
+}
+
+async function order_main() {
+  try {
+    const db = await open_db(db_file_loc);
+    /*await insert_order_async(db, [
+      2,
+      2,
+      time_set(),
+      "Frank",
+      "Sinatra",
+      "4580-7894-5586-7710",
+    ]);*/
+    //await find_by_title(db, "Com");
+
+    //const result_get_all = await get_all(db, "SELECT * FROM ORDERS");
+    //console.log(result_get_all);
+
+    //const result_get_by_id = await get_by_id(db, id);
+   // console.log(result_get_by_id);
+
+    //await update_price(db, what_to_up, id);
+    //await delete_by_id_async(db, id);
+
+    await close_db(db);
+
+  } 
+  catch (error) {
+    console.log(error);
+  }
+}
+
+order_main()
+

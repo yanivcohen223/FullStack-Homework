@@ -57,6 +57,16 @@ function find_by_title(db, find_title) {
   });
 }
 
+function random_price() {
+  let price = Math.floor(Math.random() *500) + 50;
+  let currency = "$"
+  return price + currency;
+}
+
+function random_stock() {
+  return Math.floor(Math.random() *50) + 1;
+}
+
 function insert_book_async(db, data) {
   return new Promise((resolve, reject) => {
     const insert_book = `INSERT INTO Books (title,author,publish_year,price,left_in_stock,book_image_src)
@@ -126,24 +136,24 @@ function close_db(db) {
 async function book_main() {
   try {
     const db = await open_db(db_file_loc);
-    await insert_book_async(db, [
-      "Come as you are",
-      "Emily Naqoski",
-      2015,
-      200,
-      3,
-      "lll",
-    ]);
-    await find_by_title(db, "Com");
+    //await insert_book_async(db, [
+    //  "Educated: a memoir",
+    //  "Tara Westover",
+    //  2018,
+    //  random_price() ,
+    //  random_stock(),
+    //  "https://bestofsno.com/44050/arts-entertainment/tara-westovers-educated-redefines-what-an-education-is/",
+    //]);
+    //await find_by_title(db, "Com");
 
     const result_get_all = await get_all(db, "SELECT * FROM BOOKS");
-    console.log(result_get_all);
+    console.table(result_get_all);
 
-    const result_get_by_id = await get_by_id(db, id);
-    console.log(result_get_by_id);
+    //const result_get_by_id = await get_by_id(db, id);
+    //console.log(result_get_by_id);
 
-    await update_price(db, what_to_up, id);
-    await delete_by_id_async(db, id);
+    //await update_price(db, what_to_up, id);
+    //await delete_by_id_async(db, id);
 
     await close_db(db);
 
