@@ -1,5 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 const db_file_loc = "./database/books_db.db";
+generator = require('creditcard-generator')
 
 //open data base
 function open_db(file_name) {
@@ -58,6 +59,11 @@ function find_by_lname(db, find_title) {
       }
     });
   });
+}
+
+//generate random credit card
+function random_CreditCard() {
+    return generator.GenCC("VISA");
 }
 
 //creating new order
@@ -127,6 +133,10 @@ function time_set() {
     return time_
     }
 
+function randomNum(max) {
+   let randNum =  Math.floor(Math.random()* max) + 1
+   return randNum
+}
 //close database
 function close_db(db) {
   return new Promise((resolve, reject) => {
@@ -145,18 +155,18 @@ function close_db(db) {
 async function order_main() {
   try {
     const db = await open_db(db_file_loc);
-    /*await insert_order_async(db, [
-      2,
-      2,
+    await insert_order_async(db, [
+      randomNum(5),
+      randomNum(5),
       time_set(),
-      "Frank",
-      "Sinatra",
-      "4580-7894-5586-7710",
-    ]);*/
+      "David",
+      "Ben Gurion",
+      random_CreditCard(),
+    ]);
     //await find_by_title(db, "Com");
 
-    //const result_get_all = await get_all(db, "SELECT * FROM ORDERS");
-    //console.log(result_get_all);
+    const result_get_all = await get_all(db, "SELECT * FROM ORDERS");
+    console.log(result_get_all);
 
     //const result_get_by_id = await get_by_id(db, id);
    // console.log(result_get_by_id);
