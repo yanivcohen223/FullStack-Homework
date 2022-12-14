@@ -86,7 +86,7 @@ function insert_book_async(db, data) {
 
 function update_price(db, what_to_up, id) {
   return new Promise((resolve, reject) => {
-    let update_book = `UPDATE Books
+    let update_book = `UPDATE BOOKS
                          SET price = ?
                          WHERE id = ?`;
 
@@ -137,17 +137,17 @@ async function book_main() {
   try {
     const db = await open_db(db_file_loc);
     //await insert_book_async(db, [
-    //  "Educated: a memoir",
-    //  "Tara Westover",
-    //  2018,
-    //  random_price() ,
-    //  random_stock(),
-    //  "https://bestofsno.com/44050/arts-entertainment/tara-westovers-educated-redefines-what-an-education-is/",
+    //  "", // book name
+    //  "", // author name
+    //  , // year the book was published
+    //  random_price() , // gives a random price number
+    //  random_stock(), // gives a random stock number
+    //  "", // image src
     //]);
     //await find_by_title(db, "Com");
 
     const result_get_all = await get_all(db, "SELECT * FROM BOOKS");
-    console.table(result_get_all);
+    console.log(result_get_all);
 
     //const result_get_by_id = await get_by_id(db, id);
     //console.log(result_get_by_id);
