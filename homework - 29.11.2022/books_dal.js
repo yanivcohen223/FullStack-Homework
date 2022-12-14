@@ -146,8 +146,8 @@ async function book_main() {
     //]);
     //await find_by_title(db, "Com");
 
-    const result_get_all = await get_all(db, "SELECT * FROM BOOKS");
-    console.log(result_get_all);
+    //const result_get_all = await get_all(db, "SELECT * FROM BOOKS");
+    //console.log(result_get_all);
 
     //const result_get_by_id = await get_by_id(db, id);
     //console.log(result_get_by_id);
