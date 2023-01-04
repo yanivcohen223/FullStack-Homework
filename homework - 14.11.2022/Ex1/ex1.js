@@ -133,3 +133,5 @@ function FetchAjax_userRandom() {
       console.log(result.results[0].name.first);
     });
 }
+
+
