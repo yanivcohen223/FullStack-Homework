@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>AGE</th>
+            </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+    </table>
+
+
     <label for="fname">first name:</label>
     <input id="fname" type="text">
 
@@ -14,6 +30,10 @@
     <input id="lname" type="text">
 
     <label for="age">age:</label>
-    <input id="age" type="text">
+    <input id="age" type="number">
+
+    <button id="post_btn" onclick="post_fnc()" type="button">Post</button>
+    <button id="put_btn" type="button">Put</button>
+    <button id="delete_btn" type="button">Delete</button>
 </body>
 </html>

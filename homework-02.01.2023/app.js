@@ -10,7 +10,7 @@ const knex = require('knex')
 const connectedKnex = knex({
     client: 'sqlite3',
     connection: {
-        filename: "db/db_rest.db"
+        filename: "database/db_company.db"
     }
 })
 
@@ -33,7 +33,6 @@ app.use(express.static(path.join('.', '/static/'))) // /static/index.html
 // 2. path params   <url> / 1 
 // 3. body 
 // 4. headers
-
 // ========================================== REST
 // REST BASIC:
 // 1.GET 2. GET by ID 3.POST (one-item) 4.PUT (update/replace/insert) 5.DELETE 6.PATCH (update only)
@@ -51,24 +50,9 @@ app.get('/employee', async (req, resp) => {
         resp.status(500).json({ "error": err.message })
     }
 })
-// get end point by id
-app.get('/employee/:id', async (req, resp) => {
-    try {
-        const employees = await connectedKnex('COMPANY').select('*').where('id', req.params.id).first()
-        resp.status(200).json(employees)
-    }
-    catch (err) {
-        resp.status(500).json({ "error": err.message })
-    }
-})
-
-function is_valid_employee(obj) {
-    return obj.hasOwnProperty('NAME') && obj.hasOwnProperty('AGE') && 
-        obj.hasOwnProperty('ADDRESS') && obj.hasOwnProperty('SALARY') 
-}
 
 // ADD
-app.post('/employee', async (req, resp) => {
+app.post('/company', async (req, resp) => {
     console.log(req.body);
     const employee = req.body
     try {
@@ -79,7 +63,7 @@ app.post('/employee', async (req, resp) => {
         const result = await connectedKnex('COMPANY').insert(employee)
         resp.status(201).json({
              new_employee : { ...employee, ID: result[0] },
-             url: `http://localhost:8080/employee/${result}` 
+             url: `http://localhost:9000/company/${result}` 
             })
     }
     catch (err) {
@@ -119,14 +103,6 @@ app.delete('/employee/:id', async (req, resp) => {
         resp.status(500).json({ "error": err.message })
     }
 
-})
-// PATCH -- UPDATE 
-app.patch('/employee/:id', (req, resp) => {
-    console.log(req.params.id);
-    // actually delete ... later
-    // response
-    resp.writeHead(200)
-    resp.end('Successfully updated patched')
 })
 
 app.listen(port, () => {
