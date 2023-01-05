@@ -10,12 +10,12 @@ const knex = require('knex')
 const connectedKnex = knex({
     client: 'sqlite3',
     connection: {
-        filename: "database/db_company.db"
+        filename: "db/db_company.db"
     }
 })
 
 
-const port = 9000;
+const port = 8080;
 
 const app = express()
 
@@ -28,11 +28,41 @@ app.use(express.urlencoded({
 app.use(express.static(path.join('.', '/static/'))) // /static/index.html
 // page1.html
 
+app.get('/fruit', (req, resp) => {
+    resp.writeHead(201);
+    resp.end('Banan is my favorite fruit!')
+})
+
 // parameters -
 // 1. query params  <url> ? x = 1 & y = 2
 // 2. path params   <url> / 1 
 // 3. body 
 // 4. headers
+app.get('/add', (req, resp) => {
+    // http://localhost:8080/ add ? x = 3 & y = 4
+
+    console.log(req.url);
+    console.log(req.query);
+
+    const x = Number(req.query.x)
+    const y = Number(req.query.y)
+
+    if (isNaN(x)) {
+        resp.writeHead(400)
+        resp.end(`${req.query.x} is not a number`)
+        return
+    }
+    if (isNaN(y)) {
+        resp.writeHead(400)
+        resp.end(`${req.query.y} is not a number`)
+        return
+    }
+
+    resp.writeHead(200)
+    resp.end(`<h1>${x} + ${y} = ${x + y}</h1>`)
+    //resp.end(`${JSON.stringify(req.query.x)}`)
+})
+
 // ========================================== REST
 // REST BASIC:
 // 1.GET 2. GET by ID 3.POST (one-item) 4.PUT (update/replace/insert) 5.DELETE 6.PATCH (update only)
@@ -50,9 +80,24 @@ app.get('/employee', async (req, resp) => {
         resp.status(500).json({ "error": err.message })
     }
 })
+// get end point by id
+app.get('/employee/:id', async (req, resp) => {
+    try {
+        const employees = await connectedKnex('COMPANY').select('*').where('id', req.params.id).first()
+        resp.status(200).json(employees)
+    }
+    catch (err) {
+        resp.status(500).json({ "error": err.message })
+    }
+})
+
+function is_valid_employee(obj) {
+    return obj.hasOwnProperty('NAME') && obj.hasOwnProperty('AGE') && 
+        obj.hasOwnProperty('ADDRESS') && obj.hasOwnProperty('SALARY') 
+}
 
 // ADD
-app.post('/company', async (req, resp) => {
+app.post('/employee', async (req, resp) => {
     console.log(req.body);
     const employee = req.body
     try {
@@ -63,7 +108,7 @@ app.post('/company', async (req, resp) => {
         const result = await connectedKnex('COMPANY').insert(employee)
         resp.status(201).json({
              new_employee : { ...employee, ID: result[0] },
-             url: `http://localhost:9000/company/${result}` 
+             url: `http://localhost:8080/employee/${result}` 
             })
     }
     catch (err) {
@@ -103,6 +148,14 @@ app.delete('/employee/:id', async (req, resp) => {
         resp.status(500).json({ "error": err.message })
     }
 
+})
+// PATCH -- UPDATE 
+app.patch('/employee/:id', (req, resp) => {
+    console.log(req.params.id);
+    // actually delete ... later
+    // response
+    resp.writeHead(200)
+    resp.end('Successfully updated patched')
 })
 
 app.listen(port, () => {
