@@ -6,7 +6,6 @@ const url = require('url')
 const cors = require('cors')
 const { response } = require('express')
 const knex = require('knex')
-//const { config } = require('process')
 const config = require('config')
 
 const connectedKnex = knex({

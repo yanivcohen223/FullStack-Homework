@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Test Table</h1>
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Update at</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Course-id</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+
+            </tbody>
+        </table>
+
+        <h1>Get All</h1>
+        <button type="button" onclick="get_all()">show table</button>
+
+        <h1>Get By ID</h1>
+        <p>id : <input type="number" id="get_by_id"></p>
+        <button type="button" onclick="get_by_id()">Get By ID</button>
+
+        <h1>Insert</h1>
+        <p>Name : <input type="text" id="insert_name"></p>
+        <p>result : <input type="number" id="insert_result"></p>
+        <button type="button" onclick="insert_post()">insert</button>
+
+        <h1>Update</h1>
+        <p>id : <input type="number" id="update_id"></p>
+        <p>Name : <input type="text" id="update_name"></p>
+        <p>Result : <input type="number" id="update_result"></p>
+        <button type="button" onclick="update_put()">update</button>
+
+        <h1>Delete</h1>
+        <p>id : <input type="number" id="delete_id"></p>
+        <button type="button" onclick="delete_by_id()">delete</button>
+
+
+    </body>
+    <script>
+    function get_all(){
+        fetch('/test').then(response => response.json()).
+                then(json => {
+                    console.log(json.tests);
+                    var tb = ""
+                    json.tests.forEach(e => {
+                        tb += `<tr><td>${e.id}</td>
+                               <td>${e.updateat}</td>
+                               <td>${e.name}</td>
+                               <td>${e.date}</td>
+                               <td>${e.courseid}</td></tr>`
+                    });
+                    document.getElementById('data').innerHTML = tb
+                })
+        
+    }
+
+
+    function get_by_id(){
+        let id = document.getElementById('get_by_id').value
+        fetch(`/test/1`).then(response => response.json()).
+                then(json => {
+                    console.log(json.tests);
+
+
+                    // sqlite
+                })
+    }
+
+    async function insert_post(){
+    const new_test = {
+            updateat: 'now()',
+            name: document.getElementById('insert_name').value,
+            date: 'now()',
+            courseid: parseFloat(document.getElementById('insert_result').value),
+            }
+            const result = await fetch('/test', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+                // take from inputs 
+                body: JSON.stringify(new_test)
+                
+            }).then(console.log('added'))
+
+            get_all()
+        }
+
+    async function update_put(){
+        let id = document.getElementById('update_id').value
+            /*const update_test = {
+                name: document.getElementById('update_name').value,
+                courseid: parseFloat(document.getElementById('update_result').value)
+            }
+        const result = await fetch(`/test/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+                // take from inputs 
+                body: JSON.stringify(update_test)
+            })*/
+            
+            const update_test = {
+                name: document.getElementById('update_name').value,
+                courseid: parseFloat(document.getElementById('update_result').value)
+            }
+        const result = await fetch(`/test/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+                // take from inputs 
+                body: JSON.stringify(update_test)
+            })
+        }
+    
+
+
+    function delete_by_id(){
+        let id = document.getElementById('delete_id').value
+             fetch(`/test/${id}`, {
+                 method: 'DELETE',
+                 headers: {
+                     'Accept': 'application/json',
+                     'Content-type': 'application/json'
+                 }}).then(console.log('deleted'))
+    }
+</script>
+</html>
