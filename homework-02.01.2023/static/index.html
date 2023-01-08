@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HELLO EXPRESS</title>
+</head>
+
+<body>
+    <h1>GET</h1>
+    <button onclick="get_me()">FIRE AJAX GET ALL</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>ADDRESS</th>
+                <th>SALARY</th>
+            </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+    </table>
+    <hr />
+    <h1>INSERT</h1>
+    <p>NAME : <input type="text" id="txt_name"></p>
+    <p>AGE : <input type="number" id="txt_age"></p>
+    <p>ADDRESS : <input type="text" id="txt_address"></p>
+    <p>SALARY : <input type="number" id="txt_salary"></p>
+    <p><button onclick="fire_add()">INSERT</button></p>
+
+    <h1>UPDATE</h1>
+    <p>ID : <input type="number" id="txt_id"></p>
+    <p>NAME : <input type="text" id="txt_name_update"></p>
+    <p>AGE : <input type="number" id="txt_age_update"></p>
+    <p>ADDRESS : <input type="text" id="txt_address_update"></p>
+    <p>SALARY : <input type="number" id="txt_salary_update"></p>
+    <p><button onclick="fire_update()">UPDATED</button></p>
+
+    <h1>DELETE</h1>
+    <p>ID : <input type="number" id="delete_id"></p>
+    <p><button onclick="fire_delete()">DELETE</button></p>
+    <script>
+
+        function get_me() {
+            // localhost:8080/index.html
+            // write: /employee
+            //  --> localhost:8080/employee
+
+            // localhost:5500/index.html
+            // write: /employee
+            //  --> localhost:5500/employee    
+            fetch('/employee').then(response => response.json()).
+                then(json => {
+                    console.log(json.employees);
+                    var tb = ""
+                    json.employees.forEach(e => {
+                        tb += `<tr><td>${e.id}</td>
+                <td>${e.name}</td>
+                <td>${e.age}</td>
+                <td>${e.address}</td>
+                <td>${e.salary}</td></tr>`
+                    });
+                    document.getElementById('data').innerHTML = tb
+
+                    // sqlite
+                })
+        }
+
+        async function fire_add() {
+            // demo code
+            const new_employee = {
+                name: document.getElementById('txt_name').value,
+                age: parseFloat(document.getElementById('txt_age').value),
+                address: document.getElementById('txt_address').value,
+                salary: parseFloat(document.getElementById('txt_salary').value)
+            }
+            const result = await fetch('/employee', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+                // take from inputs 
+                body: JSON.stringify(new_employee)
+                
+            }).then(console.log('deleted'))
+
+            get_me()
+
+        }
+
+        async function fire_update() {
+            let id = document.getElementById('txt_id').value
+            const new_employee = {
+                name: document.getElementById('txt_name_update').value,
+                age: parseFloat(document.getElementById('txt_age_update').value),
+                address: document.getElementById('txt_address_update').value,
+                salary: parseFloat(document.getElementById('txt_salary_update').value)
+            }
+        const result = await fetch(`/employee/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                },
+                // take from inputs 
+                body: JSON.stringify(new_employee)
+            })
+        }
+
+        async function fire_delete() {
+            // demo code
+            //const id = from_text_box
+            let id = document.getElementById('delete_id').value
+             fetch(`/employee/${id}`, {
+                 method: 'DELETE',
+                 headers: {
+                     'Accept': 'application/json',
+                     'Content-type': 'application/json'
+                 }}).then(console.log('deleted'))
+
+        }            
+    
+        
+    </script>
+</body>
+
+</html>
