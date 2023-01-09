@@ -90,7 +90,30 @@ router.get('/', async (req, resp) => {
     }
 })
 
-// get end point by id
+/**
+*  @swagger
+*   /employee/{id}:
+*     get:
+*       summary: Gets a employee by id
+*       tags: [Employees]
+*       parameters:
+*         - in: path
+*           name: id
+*           schema:
+*             type: integer
+*           required: true
+*           description: The employee id
+*       responses:
+*         "200":
+*           description: The list of employees.
+*           content:
+*             application/json:
+*               schema:
+*                 $ref: '#/components/schemas/Employee'
+*         "404":
+*           description: employee does not found.
+*/
+//get end point by id
 router.get('/:id', async (req, resp) => {
     try {
         const employees = await connectedKnex('employee').select('*').where('id', req.params.id).first()
@@ -106,6 +129,27 @@ function is_valid_employee(obj) {
         obj.hasOwnProperty('address') && obj.hasOwnProperty('salary') 
 }
 
+/**
+* 
+* @swagger
+* /employee/:
+*     post:
+*       summary: Creates a new employee
+*       tags: [Employees]
+*       requestBody:
+*         required: true
+*         content:
+*           application/json:
+*             schema:
+*               $ref: '#/components/schemas/Employee'
+*       responses:
+*         "200":
+*           description: The created employee.
+*           content:
+*             application/json:
+*               schema:
+*                 $ref: '#/components/schemas/Employee'
+*/
 // ADD
 router.post('/', async (req, resp) => {
     console.log(req.body);
