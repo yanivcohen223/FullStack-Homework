@@ -1,6 +1,7 @@
 function get_all(){
     fetch('/test').then(response => response.json()).
             then(json => {
+
                 console.log(json.tests);
                 var tb = ""
                 json.tests.forEach(e => {
@@ -11,8 +12,9 @@ function get_all(){
                            <td>${e.courseid}</td></tr>`
                 });
                 document.getElementById('data').innerHTML = tb
+                
             })
-    
+
 }
 
 
@@ -35,9 +37,9 @@ function get_by_id(){
 
 async function insert_post(){
 const new_test = {
-        updateat: 'now()',
+        updateat: new Date().toLocaleTimeString(),
         name: document.getElementById('insert_name').value,
-        date: 'now()',
+        date: new Date().toLocaleTimeString(),
         courseid: parseFloat(document.getElementById('insert_result').value),
         }
         const result = await fetch('/test', {
@@ -57,7 +59,7 @@ const new_test = {
 async function update_put(){
     let id = document.getElementById('update_id').value
         const update_test = {
-            updateat: 'now()',
+            updateat: new Date().toLocaleTimeString(),
             name: document.getElementById('update_name').value,
             courseid: parseFloat(document.getElementById('update_result').value)
         }
@@ -82,5 +84,5 @@ function delete_by_id(){
              headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
-             }}).then(console.log('deleted'))
+             }})
 }

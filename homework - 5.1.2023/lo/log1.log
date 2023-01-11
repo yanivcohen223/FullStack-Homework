@@ -1,0 +1,12 @@
+{
+  level: 'info',
+  message: 'What time is the testing at?',
+  label: 'test logger',
+  timestamp: '2023-01-11T19:26:56.556Z'
+}
+{
+  message: 'test1',
+  level: 'info',
+  label: 'test logger',
+  timestamp: '2023-01-11T19:26:56.611Z'
+}

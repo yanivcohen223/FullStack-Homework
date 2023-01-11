@@ -19,6 +19,7 @@
     "knex": "^2.3.0",
     "pg": "^8.8.0",
     "swagger-jsdoc": "^6.2.7",
-    "swagger-ui-express": "^4.6.0"
+    "swagger-ui-express": "^4.6.0",
+    "winston": "^3.8.2"
   }
 }

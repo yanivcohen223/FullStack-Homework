@@ -6,11 +6,12 @@ const cors = require('cors')
 const { response } = require('express')
 const knex = require('knex')
 const config = require('config')
-
 const testsRouter = require('./routes/tests')
 
 const swaggerJsdoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
+
+const logger = require('./logger/logger')
 
 const port = 9000;
 

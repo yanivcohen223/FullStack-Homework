@@ -1,0 +1,6 @@
+{
+  message: 'error during PUT in tests router. test = {"updateat":"9:58:04 PM","name":"shlomi","courseid":75} update "test" set "updateat" = $1, "name" = $2, "courseid" = $3 where "id" = $4 - invalid input syntax for type timestamp with time zone: "9:58:04 PM"',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-11T19:58:04.469Z'
+}
