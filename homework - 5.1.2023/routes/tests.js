@@ -3,6 +3,7 @@ const router = express.Router()
 const knex = require('knex')
 const config = require('config')
 const logger = require('../logger/logger')
+const { log } = require('winston')
 
 const connectedKnex = knex({
     client: 'pg',
@@ -127,10 +128,12 @@ router.get('/', async (req, resp) => {
 router.get('/:id', async (req, resp) => {
     try {
         const tests = await connectedKnex('test').select('*').where('id', req.params.id).first()
-        resp.status(200).json(tests)
+        console.log(tests);
+        resp.status(200).json(tests? tests:{})
     }
     catch (err) {
-        logger.error(`test with that id wasnt found. ${JSON.stringify(test)} ${err.message}`)
+        console.log(err);
+        logger.error(`test with that id wasnt found. ${JSON.stringify(tests)} ${err.message}`)
         resp.status(500).json({ "error": err.message })
     }
 })
@@ -175,10 +178,11 @@ router.post('/', async (req, resp) => {
             resp.status(400).json({ error: 'values of test are not llegal'})
             return
         }
-        const result = await connectedKnex('test').insert(test)
+        const result = await connectedKnex('test').returning('id').insert(test)
+        console.log(result);
         resp.status(201).json({
-             new_test : { ...test, ID: result[0] },
-             url: `http://localhost:8080/test/${result}` 
+             new_test : { ...test, ID: result[0].id },
+             url: `http://localhost:8080/test/${result[0].id}` 
             })
     }
     catch (err) {
@@ -268,15 +272,6 @@ router.delete('/:id', async (req, resp) => {
         resp.status(500).json({ "error": err.message })
     }
 
-})
-
-// PATCH -- UPDATE 
-router.patch('/:id', (req, resp) => {
-    console.log(req.params.id);
-    // actually delete ... later
-    // response
-    resp.writeHead(200)
-    resp.end('Successfully updated patched')
 })
 
 module.exports = router;

@@ -4,3 +4,33 @@
   label: 'test logger',
   timestamp: '2023-01-11T19:58:04.469Z'
 }
+{
+  message: 'error during POST in tests router. test = {"updateat":"5:40:14 PM","name":"itay","date":"5:40:14 PM","courseid":95} insert into "test" ("courseid", "date", "name", "updateat") values ($1, $2, $3, $4) - invalid input syntax for type timestamp: "5:40:14 PM"',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-12T15:40:15.168Z'
+}
+{
+  message: 'error during POST in tests router. test = {"updateat":"5:41:43 PM","name":"itay","date":"5:41:43 PM","courseid":98} insert into "test" ("courseid", "date", "name", "updateat") values ($1, $2, $3, $4) - invalid input syntax for type timestamp: "5:41:43 PM"',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-12T15:41:44.122Z'
+}
+{
+  message: 'error during POST in tests router. test = {"updateat":"now()","name":"tal","date":"now()","courseid":100} insert into "test" ("courseid", "date", "name", "updateat") values ($1, $2, $3, $4) - duplicate key value violates unique constraint "uniquename_"',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-12T15:47:34.865Z'
+}
+{
+  message: 'error during POST in tests router. test = {"updateat":"now()","name":"","date":"now()","courseid":null} insert into "test" ("courseid", "date", "name", "updateat") values ($1, $2, $3, $4) returning "id" - null value in column "courseid" of relation "test" violates not-null constraint',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-13T09:49:37.062Z'
+}
+{
+  message: 'error during POST in tests router. test = {"updateat":"now()","name":"","date":"now()","courseid":null} insert into "test" ("courseid", "date", "name", "updateat") values ($1, $2, $3, $4) returning "id" - null value in column "courseid" of relation "test" violates not-null constraint',
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-13T09:49:48.327Z'
+}

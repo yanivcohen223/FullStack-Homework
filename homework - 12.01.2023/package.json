@@ -1,0 +1,19 @@
+{
+  "name": "homework---12.01.2023",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "mocha *.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "should": "^13.2.3",
+    "superset": "^2.0.1"
+  }
+}

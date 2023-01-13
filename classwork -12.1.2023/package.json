@@ -1,0 +1,27 @@
+{
+  "name": "12.01.2023",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullstack180822/12.01.2023.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fullstack180822/12.01.2023/issues"
+  },
+  "homepage": "https://github.com/fullstack180822/12.01.2023#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "should": "^13.2.3",
+    "superset": "^2.0.1"
+  }
+}

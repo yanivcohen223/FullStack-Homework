@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 function get_all(){
     fetch('/test').then(response => response.json()).
             then(json => {
@@ -23,23 +25,25 @@ function get_by_id(){
     fetch(`/test/${test_id}`).then(response => response.json()).
             then(json => {
                 console.log(json);
-                $('#data').append(`
+                if(Object.getOwnPropertyNames(json).length > 0) {
+                $('#data').html(`
                     <tr><td>${json.id}</td>
                     <td>${json.updateat}</td>
                     <td>${json.name}</td>
                     <td>${json.date}</td>
                     <td>${json.courseid}</td></tr>
                 `)
-            })
+            }}).catch(err => console.log(err))
                 
             
 }
 
 async function insert_post(){
+    let date_ = new Date()
 const new_test = {
-        updateat: new Date().toLocaleTimeString(),
+        updateat: date_,
         name: document.getElementById('insert_name').value,
-        date: new Date().toLocaleTimeString(),
+        date: date_,
         courseid: parseFloat(document.getElementById('insert_result').value),
         }
         const result = await fetch('/test', {
@@ -51,15 +55,16 @@ const new_test = {
             // take from inputs 
             body: JSON.stringify(new_test)
             
-        }).then(console.log('added'))
+        }).then(response => response.json()).then(response => console.log( response , 'added')).catch(err => console.log(err))
 
         get_all()
     }
 
 async function update_put(){
+    let date_ = new Date()
     let id = document.getElementById('update_id').value
         const update_test = {
-            updateat: new Date().toLocaleTimeString(),
+            updateat: date_,
             name: document.getElementById('update_name').value,
             courseid: parseFloat(document.getElementById('update_result').value)
         }
@@ -73,7 +78,7 @@ async function update_put(){
             body: JSON.stringify(update_test)
         })
         get_all()
-    }
+    } 
 
 
 
