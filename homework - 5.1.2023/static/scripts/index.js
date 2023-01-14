@@ -1,4 +1,4 @@
-const { response } = require("express");
+
 
 function get_all(){
     fetch('/test').then(response => response.json()).
@@ -83,6 +83,7 @@ async function update_put(){
 
 
 function delete_by_id(){
+    get_all()
     let id = document.getElementById('delete_id').value
          fetch(`/test/${id}`, {
              method: 'DELETE',
@@ -90,4 +91,5 @@ function delete_by_id(){
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
              }})
+    
 }

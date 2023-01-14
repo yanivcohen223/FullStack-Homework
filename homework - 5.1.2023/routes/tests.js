@@ -4,6 +4,7 @@ const knex = require('knex')
 const config = require('config')
 const logger = require('../logger/logger')
 const { log } = require('winston')
+const test_repo = require('../dal/test_repo')
 
 const connectedKnex = knex({
     client: 'pg',
@@ -91,7 +92,7 @@ const connectedKnex = knex({
 */
 router.get('/', async (req, resp) => {
     try {
-        const tests = await connectedKnex('test').select('*');
+        const tests = await test_repo.get_all_tests()
         console.log(tests);
         resp.status(200).json({ tests })
     }
@@ -127,7 +128,7 @@ router.get('/', async (req, resp) => {
 */
 router.get('/:id', async (req, resp) => {
     try {
-        const tests = await connectedKnex('test').select('*').where('id', req.params.id).first()
+        const tests = await test_repo.get_test_by_id(req.params.id)
         console.log(tests);
         resp.status(200).json(tests? tests:{})
     }
@@ -178,7 +179,7 @@ router.post('/', async (req, resp) => {
             resp.status(400).json({ error: 'values of test are not llegal'})
             return
         }
-        const result = await connectedKnex('test').returning('id').insert(test)
+        const result = await test_repo.insert_test(test)
         console.log(result);
         resp.status(201).json({
              new_test : { ...test, ID: result[0].id },
@@ -227,7 +228,7 @@ router.put('/:id', async (req, resp) => {
             resp.status(400).json({ error: 'values of test are not llegal'})
             return
         }
-        const result = await connectedKnex('test').where('id', req.params.id).update(test)
+        const result = await test_repo.update_test(req.params.id , test)
         resp.status(200).json({
              status: 'updated',
              'how many rows updated': result
@@ -261,7 +262,7 @@ router.put('/:id', async (req, resp) => {
 */
 router.delete('/:id', async (req, resp) => {
     try {
-        const result = await connectedKnex('test').where('id', req.params.id).del()
+        const result = await test_repo.del_test_by_id(req.params.id)
         resp.status(200).json({
             status: 'success',
             "how many deleted": result
