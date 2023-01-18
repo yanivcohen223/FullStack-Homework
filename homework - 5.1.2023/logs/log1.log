@@ -52,3 +52,21 @@
   label: 'test logger',
   timestamp: '2023-01-18T17:19:43.558Z'
 }
+{
+  message: `error during POST in tests router. test = {"updateat":"2023-01-18T17:44:29.410Z","name":"danny","date":"2023-01-18T17:44:29.410Z","courseid":95} Cannot read properties of undefined (reading 'id')`,
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:44:29.487Z'
+}
+{
+  message: `error during POST in tests router. test = {"updateat":"2023-01-18T17:45:35.688Z","name":"tom","date":"2023-01-18T17:45:35.688Z","courseid":62} Cannot read properties of undefined (reading 'id')`,
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:45:35.718Z'
+}
+{
+  message: `error during POST in tests router. test = {"updateat":"2023-01-18T17:46:14.104Z","name":"chris","date":"2023-01-18T17:46:14.104Z","courseid":89} Cannot read properties of undefined (reading 'id')`,
+  level: 'error',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:46:14.123Z'
+}

@@ -6,6 +6,13 @@
         "password": "admin",
         "database": "postgres"
     },
+    "test_db": {
+        "version": 15,
+        "host": "127.0.0.1",
+        "user": "postgres",
+        "password": "admin",
+        "database": "postgres"
+    },
     "express": {
         "port" : 9000
     },

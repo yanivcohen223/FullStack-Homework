@@ -4,13 +4,7 @@ const path = require('path')
 const url = require('url')
 const cors = require('cors')
 const { response } = require('express')
-const knex = require('knex')
 const config = require('config')
-const testsRouter = require('./routes/tests')
-const swaggerJsdoc = require('swagger-jsdoc')
-const swaggerUi = require('swagger-ui-express')
-const logger = require('./logger/logger')
-const test_dal = require('./dal/test_repo')
 const assert = require('assert')
 const expect = require('chai').expect
 const axios = require('axios')
@@ -29,18 +23,18 @@ describe('Testing rest-api resource tests' ,() => {
         expect(res.status).to.equal(200)
     });
 
-    it('testing get by id 7 should return status 200', async () => {
+    it('testing get by id 1 should return status 200', async () => {
 
-        const res = await axios.get(`http://localhost:${port}/test/7`);
+        const res = await axios.get(`http://localhost:${port}/test/1`);
 
         console.log(res.data);
         expect(res.status).to.equal(200)
         
     });
 
-    it('testing get by id 1 should return status 200', async () => {
+    it('testing get by id 2 should return status 200', async () => {
 
-        const res = await axios.get(`http://localhost:${port}/test/7`);
+        const res = await axios.get(`http://localhost:${port}/test/2`);
 
         console.log(res.data);
         expect(res.status).to.equal(200)

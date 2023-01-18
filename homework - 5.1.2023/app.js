@@ -9,7 +9,7 @@ const config = require('config')
 const testsRouter = require('./routes/tests')
 const swaggerJsdoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
-const logger = require('./logger/logger')
+//const logger = require('./logger/logger') no use in tests
 const test_dal = require('./dal/test_repo')
 
 
@@ -32,11 +32,11 @@ app.get('/my_ejs', async (req, res) => res.render('test_page', {
   tests : await test_dal.get_all_tests()
 }))
 
-//middleware
+/*middleware
 app.get('*', async (req, res, next) => {
   logger.debug(`get delivered ${req.url}`)
   next()
-})
+})*/
 
 //system app 
 app.listen(port, () => {
@@ -69,4 +69,4 @@ app.use(
     swaggerUi.setup(specs)
   );
 
-app.use('/test', testsRouter)
+app.use('/testdb', testsRouter)

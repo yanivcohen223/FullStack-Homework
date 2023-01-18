@@ -14,23 +14,23 @@ const connectedKnex = knex({
 
 
 const get_all_tests = () => {
-    return connectedKnex('test').select('*');
+    return connectedKnex('testdb').select('*');
 }
 
 const get_test_by_id = id => {
-    return connectedKnex('test').select('*').where('id', id).first()
+    return connectedKnex('testdb').select('*').where('id', id).first()
 }
 
 const insert_test = test => {
-    return connectedKnex('test').insert(test)
+    return connectedKnex('testdb').insert(test)
 }
 
 const update_test = (id, test) => {
-    return connectedKnex('test').where('id', id).update(test)
+    return connectedKnex('testdb').where('id', id).update(test)
 }
 
 const del_test_by_id = (id) => {
-    return connectedKnex('test').where('id', id).del()
+    return connectedKnex('testdb').where('id', id).del()
 }
 
 module.exports = {

@@ -1,7 +1,7 @@
 
 
 function get_all(){
-    fetch('/test').then(response => response.json()).
+    fetch('/testdb').then(response => response.json()).
             then(json => {
 
                 console.log(json.tests);
@@ -22,7 +22,7 @@ function get_all(){
 
 function get_by_id(){
     let test_id = document.getElementById('get_by_id').value
-    fetch(`/test/${test_id}`).then(response => response.json()).
+    fetch(`/testdb/${test_id}`).then(response => response.json()).
             then(json => {
                 console.log(json);
                 if(Object.getOwnPropertyNames(json).length > 0) {
@@ -46,7 +46,7 @@ const new_test = {
         date: date_,
         courseid: parseFloat(document.getElementById('insert_result').value),
         }
-        const result = await fetch('/test', {
+        const result = await fetch('/testdb', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -68,7 +68,7 @@ async function update_put(){
             name: document.getElementById('update_name').value,
             courseid: parseFloat(document.getElementById('update_result').value)
         }
-    const result = await fetch(`/test/${id}`, {
+    const result = await fetch(`/testdb/${id}`, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -85,7 +85,7 @@ async function update_put(){
 function delete_by_id(){
     get_all()
     let id = document.getElementById('delete_id').value
-         fetch(`/test/${id}`, {
+         fetch(`/testdb/${id}`, {
              method: 'DELETE',
              headers: {
                  'Accept': 'application/json',
