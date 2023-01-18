@@ -1,9 +1,10 @@
+const config = require('config')
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, label, prettyPrint } = format;
  
 
 const logger = createLogger({
-    level: 'error',
+    level: config.logger.level,
   format: combine(
     label({ label: 'test logger' }),
     timestamp(),

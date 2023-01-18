@@ -34,3 +34,21 @@
   label: 'test logger',
   timestamp: '2023-01-13T09:49:48.327Z'
 }
+{
+  message: 'URL LOG ------------- /test',
+  level: 'debug',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:19:19.484Z'
+}
+{
+  message: 'URL LOG ------------- /test/7',
+  level: 'debug',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:19:38.168Z'
+}
+{
+  message: 'URL LOG ------------- /test/7',
+  level: 'debug',
+  label: 'test logger',
+  timestamp: '2023-01-18T17:19:43.558Z'
+}

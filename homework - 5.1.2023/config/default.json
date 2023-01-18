@@ -5,5 +5,11 @@
         "user": "postgres",
         "password": "admin",
         "database": "postgres"
+    },
+    "express": {
+        "port" : 9000
+    },
+    "logger": {
+        "level": "debug"
     }
 }

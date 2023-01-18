@@ -7,17 +7,17 @@ const { response } = require('express')
 const knex = require('knex')
 const config = require('config')
 const testsRouter = require('./routes/tests')
-
 const swaggerJsdoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
-
 const logger = require('./logger/logger')
+const test_dal = require('./dal/test_repo')
 
-const port = 9000;
+
+const port = config.express.port;
 
 const app = express()
 
-// to use body parameters
+// to use body parameters 
 app.use(express.json())
 app.use(express.urlencoded({
     extended: true
@@ -25,11 +25,25 @@ app.use(express.urlencoded({
 
 app.use(express.static(path.join('.', '/static/')));
 
+//using ejs to show pages
+app.set('view engine', 'ejs')
 
+app.get('/my_ejs', async (req, res) => res.render('test_page', {
+  tests : await test_dal.get_all_tests()
+}))
+
+//middleware
+app.get('*', async (req, res, next) => {
+  logger.debug(`get delivered ${req.url}`)
+  next()
+})
+
+//system app 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
 })
 
+//swagger
 const options = {
     definition: {
       openapi: "3.0.0",

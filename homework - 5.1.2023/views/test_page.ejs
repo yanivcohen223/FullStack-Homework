@@ -1,0 +1,36 @@
+<%- include('partials/name_header'); -%>
+
+<h1>Test Table</h1>
+
+<table border="1">
+    <tr></tr>
+        <th>id</th>
+        <th>update at</th>
+        <th>name</th>
+        <th>date</th>
+        <th>course id</th>
+    <tr></tr>
+<% 
+for(var i = 0; i < tests.length; i++) {%>
+   <tr>
+     <td>
+        <%= tests[i].id%>
+     </td>
+     <td>
+        <%= tests[i].updateat%>
+     </td>     
+     <td>
+        <%= tests[i].name%>
+     </td>     
+     <td>
+        <%= tests[i].date%>
+     </td>     
+     <td>
+        <%= tests[i].courseid%>
+     </td>                    
+   </tr>
+<% } %>
+</table>
+
+
+<%- include('partials/ecom_footer') -%> 
