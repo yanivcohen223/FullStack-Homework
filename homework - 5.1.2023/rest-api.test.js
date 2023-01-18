@@ -38,9 +38,9 @@ describe('Testing rest-api resource tests' ,() => {
         
     });
 
-    it('testing get by id 1 should return status 200', async () => {
+    it('testing get by id 8 should return status 200', async () => {
 
-        const res = await axios.get(`http://localhost:${port}/test/7`);
+        const res = await axios.get(`http://localhost:${port}/test/8`);
 
         console.log(res.data);
         expect(res.status).to.equal(200)
