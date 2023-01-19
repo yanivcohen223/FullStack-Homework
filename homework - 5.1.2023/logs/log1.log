@@ -88,3 +88,15 @@
   label: 'test logger',
   timestamp: '2023-01-19T17:59:57.190Z'
 }
+{
+  message: 'get delivered /test',
+  level: 'debug',
+  label: 'test logger',
+  timestamp: '2023-01-19T19:06:13.775Z'
+}
+{
+  message: 'get delivered /test',
+  level: 'debug',
+  label: 'test logger',
+  timestamp: '2023-01-19T19:06:22.556Z'
+}
