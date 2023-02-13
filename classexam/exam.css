@@ -1,0 +1,24 @@
+h1 {
+    text-decoration: underline;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#table {
+    width: 1420px;
+    margin-left: 30px;
+}
+img{
+    height: 60px;
+    border-radius: 50%;
+}
+.low_rating{
+    background-color: rgb(242, 83, 83);
+}
+.high_rating {
+    background-color: rgb(135, 229, 160);
+}
+.default {
+    background-color: white;
+}
